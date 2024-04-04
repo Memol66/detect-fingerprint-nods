@@ -1,0 +1,18 @@
+% Read the fingerprint image
+image = imread('fingerprint_image.jpg');
+
+% Convert the image to grayscale
+gray_image = rgb2gray(image);
+
+% Enhance the contrast of the grayscale image
+enhanced_image = imadjust(gray_image);
+
+% Perform ridge detection using the oriented Gabor filter
+[~, ~, gaborMag] = ridgefilter(enhanced_image, 4, 6, 2);
+
+% Threshold the ridge response to get binary ridge map
+binary_ridge_map = gaborMag > 0.1; % Adjust threshold as needed
+
+% Display the binary ridge map
+imshow(binary_ridge_map)
+title('Binary Ridge Map')
