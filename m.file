@@ -1,6 +1,5 @@
 % Read the fingerprint image
 image = imread('fingerprint_image.jpg');
-
 % Convert the image to grayscale
 gray_image = rgb2gray(image);
 
